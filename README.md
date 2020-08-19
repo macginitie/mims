@@ -1,4 +1,6 @@
 # mims
+MacGinitie's Image Munging Stuff
+
 (from https://dictionary.cambridge.org/us/dictionary/english/munging:
 "...the process of changing data into another format \[...\] so that it can be used or processed...")
 
