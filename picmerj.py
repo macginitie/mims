@@ -12,6 +12,7 @@
 #
 # 0. go see Joanna & band https://www.youtube.com/watch?v=iSwoM7WIy5M
 #
+import os
 
 from PIL import Image
 from PIL import ImageFilter
@@ -362,6 +363,6 @@ if __name__ == '__main__':
         print( 'writing to default.jpg' )
         new_image.save('default.jpg')
     
-    if newfile != '':
+    if newfile != '' and 'ix' not in os.name:
         image = cv2.imread(newfile)
         viewImage(image, newfile)
