@@ -10,7 +10,7 @@
 # 3. provide offset for smaller image within larger
 # 4. masking
 #
-# 0. go see Joanna & band https://www.youtube.com/watch?v=iSwoM7WIy5M
+# 0. go see Joanna & the Wrecking Crew https://www.youtube.com/watch?v=iSwoM7WIy5M
 #
 import os
 
