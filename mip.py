@@ -12,8 +12,14 @@ import random
 import sys
 import cv2
 
-white = 255, 255, 255
-black = 0, 0, 0
+white = (255,255,255)
+black = (0,0,0)
+max_red = (255,0,0)
+max_green = (0,255,0)
+max_blue = (0,0,255)
+cyan = (0,255,255)
+magenta = (255,0,255)
+yellow = (255,255,0)
 
 
 def view_image(name_of_window):

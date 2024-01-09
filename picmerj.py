@@ -25,6 +25,9 @@ black = (0,0,0)
 max_red = (255,0,0)
 max_green = (0,255,0)
 max_blue = (0,0,255)
+cyan = (0,255,255)
+magenta = (255,0,255)
+yellow = (255,255,0)
 
 
 def viewImage(image, name_of_window):
@@ -247,8 +250,18 @@ def chessboard(im1, im2, width, height, s1, s2, out_img):
                     out_img[i,j] = im1[i,j]
                 else:
                     out_img[i,j] = im2[i,j]
-        
+                    
+
+# blue channel from p1 other channels from p2
+def left_blue(px1, px2):
+    return red_channel(px2), green_channel(px2), blue_channel(px1)
+
             
+def printops(ops):
+    for o in sorted(ops):
+        print(o, ops[o])
+
+
 if __name__ == '__main__':
 
     try:
@@ -299,14 +312,15 @@ if __name__ == '__main__':
         target_green = int(sys.argv[5])
         target_blue = int(sys.argv[6])
     except:
-        pass
+        print('target exception')
         
     print( target_red, target_green, target_blue )
 
     try:
         combiner_code = sys.argv[3]
     except:
-        combiner_code = 'l'
+        print('combiner code exception -- no argv[3] provided?')
+        combiner_code = '?'
 
     combiners = {}
     combiners['a'] = average
@@ -330,14 +344,17 @@ if __name__ == '__main__':
     combiners['rb'] = below
     combiners['rs'] = random_source
     combiners['xb'] = chessboard
+    combiners['b1'] = left_blue
 
     if combiner_code in combiners:
         combiner = combiners[ combiner_code ]
     else:
         print( 'combiner_code "', combiner_code, '" not recognized, defaulting to "l" (lighter/brighter)' )
+        printops( combiners )
         combiner = brighter  # always [default to] the bright side of life [whistling]
         
     print( 'combiner_code is [', combiner_code, ']')
+    print( 'combiner is [', combiner, ']')
         
     if combiner_code == 'cb':
         combiner( img_pix, img2_pix, width, height, new_image.load() )
